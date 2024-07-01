@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { TestimonyCarousel } from "@/components/testimonial";
 
 export default function Home() {
   return (
@@ -125,7 +126,7 @@ export default function Home() {
           </ul>
         </div>
       </section>
-
+      {/* How it works */}
       <section className="mt-8 px-5 mb-10">
         <h1 className="text-center">
           How It <span>Works</span>
@@ -142,7 +143,9 @@ export default function Home() {
                 priority
                 className="mx-auto"
               />
-              <h2 className="font-bold mt-4 text-center">Fill Out a Quick Form</h2>
+              <h2 className="font-bold mt-4 text-center">
+                Fill Out a Quick Form
+              </h2>
               <p className="text-center">
                 Enter your delivery address, preferred date and time, and
                 cylinder details. It&apos;s fast and convenient.
@@ -186,6 +189,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="mt-8 px-5 mb-10">
+        <h1 className="text-center mb-8">Testimonial</h1>
+        <TestimonyCarousel />
       </section>
     </>
   );

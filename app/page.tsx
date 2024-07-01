@@ -21,16 +21,17 @@ export default function Home() {
         </div>
         <div className="relative">
           <Image
-            src="/hero-image.svg"
+            src="/hero-image1.svg"
             alt={""}
-            width={500}
-            height={500}
+            width={550}
+            height={550}
             priority
+            className="w-full h-[550px]"
           />
         </div>
       </section>
       {/* Specialization */}
-      <section className="grid grid-cols-4 border border-primary py-8 items-center justify-center text-center rounded-lg divide-x-2 px-10 m-10">
+      <section className="grid grid-cols-4 border border-primary py-8 items-center justify-center text-center rounded-lg divide-x-2 px-10 m-10 shadow-lg">
         <div>
           <Image
             src="/delivery-transport-svgrepo-com.svg"
@@ -40,7 +41,7 @@ export default function Home() {
             priority
             className="mx-auto"
           />
-          <h1 className="font-semibold mt-2">Fast Delivery</h1>
+          <h2 className="font-semibold mt-2">Fast Delivery</h2>
         </div>
         <div>
           <Image
@@ -51,7 +52,7 @@ export default function Home() {
             priority
             className="mx-auto"
           />
-          <h1 className="font-semibold mt-2">Perfect Quality</h1>
+          <h2 className="font-semibold mt-2">Perfect Quality</h2>
         </div>
         <div>
           <Image
@@ -62,7 +63,7 @@ export default function Home() {
             priority
             className="mx-auto"
           />
-          <h1 className="font-semibold mt-2">Tracking System</h1>
+          <h2 className="font-semibold mt-2">Tracking System</h2>
         </div>
         <div>
           <Image
@@ -73,10 +74,11 @@ export default function Home() {
             priority
             className="mx-auto"
           />
-          <h1 className="font-semibold mt-2">24 / 7 Support</h1>
+          <h2 className="font-semibold mt-2">24 / 7 Support</h2>
         </div>
       </section>
 
+      {/* About Us */}
       <section className="grid grid-cols-2 px-10 ">
         <div className="relative">
           <Image
@@ -95,17 +97,17 @@ export default function Home() {
           <h1 className="text-5xl font-bold">
             Why <span className="text-primary">Choose Us</span>{" "}
           </h1>
-         
+
           <ul className="mt-6 space-y-4">
             <li>
-              <span className="font-bold">Effortless Booking:</span> Book your LPG
-              refills quickly and easily through our user-friendly online
+              <span className="font-bold">Effortless Booking:</span> Book your
+              LPG refills quickly and easily through our user-friendly online
               platform. No more waiting on hold or inconvenient phone calls.
             </li>
             <li>
-              <span className="font-bold">Real-Time Tracking:</span> Track your LPG
-              order status in real-time, so you always know when to expect your
-              delivery. Stay informed and avoid any unnecessary waiting.
+              <span className="font-bold">Real-Time Tracking:</span> Track your
+              LPG order status in real-time, so you always know when to expect
+              your delivery. Stay informed and avoid any unnecessary waiting.
             </li>
             <li>
               <span className="font-bold">Safe and Reliable Delivery:</span> Our
@@ -121,6 +123,68 @@ export default function Home() {
               rates to keep your LPG costs manageable.
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section className="mt-8 px-5 mb-10">
+        <h1 className="text-center">
+          How It <span>Works</span>
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+          <div className="flex items-center justify-center p-8 bg-secondary rounded-lg shadow-lg border border-primary">
+            <div>
+              <Image
+                src="/advanced-study-application-svgrepo-com.svg"
+                width={100}
+                height={100}
+                alt=""
+                priority
+                className="mx-auto"
+              />
+              <h2 className="font-bold mt-4 text-center">Fill Out a Quick Form</h2>
+              <p className="text-center">
+                Enter your delivery address, preferred date and time, and
+                cylinder details. It&apos;s fast and convenient.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center p-8 bg-secondary rounded-lg shadow-lg border border-primary">
+            <div>
+              <Image
+                src="/track-svgrepo-com.svg"
+                width={100}
+                height={100}
+                alt=""
+                priority
+                className="mx-auto"
+              />
+              <h2 className="font-bold mt-4 text-center">Track Your Order</h2>
+              <p className="text-center">
+                Monitor your order status in real-time. See when your LPG is
+                being filled, dispatched, and estimated arrival time.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center p-8 bg-secondary rounded-lg shadow-lg border border-primary">
+            <div>
+              <Image
+                src="/delivery-man-svgrepo-com.svg"
+                width={100}
+                height={100}
+                alt=""
+                priority
+                className="mx-auto"
+              />
+              <h2 className="font-bold mt-4 text-center">Receive Your LPG</h2>
+              <p className="text-center">
+                Relax and receive your LPG refill at your doorstep. Our
+                experienced delivery partners ensure a safe and smooth process.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </>

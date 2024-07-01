@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/header";
-
-
+import { Footer } from "@/components/footer";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -24,10 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${archivo.className} text-lg`}>
-        <Navbar/>
-        <main>
-          {children}
-        </main>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

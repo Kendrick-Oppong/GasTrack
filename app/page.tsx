@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <>
       {/* hero section */}
-      <section className="grid grid-cols-2 px-10  bg-secondary ">
+      <section className="grid md:grid-cols-2 px-10 pt-8 lg:pt-0  bg-secondary ">
         <div className="self-center">
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-4xl md:text-5xl font-bold">
             Effortless <span className="text-primary">LPG Management</span>{" "}
           </h1>
           <p className="font-semibold text-xl my-8">
@@ -32,8 +32,8 @@ export default function Home() {
         </div>
       </section>
       {/* Specialization */}
-      <section className="grid grid-cols-4 border border-primary py-8 items-center justify-center text-center rounded-lg divide-x-2 px-10 m-10 shadow-lg">
-        <div>
+      <section className="grid grid-cols-1 md:grid-cols-4 border border-primary py-8 items-center justify-center text-center rounded-lg divide-x-2 px-5 md:px-10 m-3 md:m-10 shadow-lg gap-4">
+        <div className="border border-secondary shadow-lg px-3 py-8 rounded-lg">
           <Image
             src="/delivery-transport-svgrepo-com.svg"
             width={100}
@@ -44,7 +44,7 @@ export default function Home() {
           />
           <h2 className="font-semibold mt-2">Fast Delivery</h2>
         </div>
-        <div>
+        <div className="border border-secondary shadow-lg px-3 py-8 rounded-lg">
           <Image
             src="/quality-svgrepo-com.svg"
             width={100}
@@ -55,7 +55,7 @@ export default function Home() {
           />
           <h2 className="font-semibold mt-2">Perfect Quality</h2>
         </div>
-        <div>
+        <div className="border border-secondary shadow-lg px-3 py-8 rounded-lg">
           <Image
             src="/location-global-svgrepo-com.svg"
             width={100}
@@ -66,7 +66,7 @@ export default function Home() {
           />
           <h2 className="font-semibold mt-2">Tracking System</h2>
         </div>
-        <div>
+        <div className="border border-secondary shadow-lg px-3 py-8 rounded-lg">
           <Image
             src="/customer-service-help-svgrepo-com.svg"
             width={100}
@@ -80,7 +80,7 @@ export default function Home() {
       </section>
 
       {/* About Us */}
-      <section className="grid grid-cols-2 px-10 ">
+      <section className="grid lg:grid-cols-2 px-10 my-16 md:my-0">
         <div className="relative">
           <Image
             src="/about_us.svg"
@@ -90,7 +90,7 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="self-center">
+        <div className="mt-8 lg:mt-0 self-center">
           <Badge variant="destructive" className="mb-4">
             About Us
           </Badge>

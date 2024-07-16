@@ -5,9 +5,11 @@ const Footer = () => {
     <footer className="bg-accent mt-36 px-5 py-6">
       <div className="grid sm:grid-cols-2 justify-between">
         <div>
-         LOGO
+          <div className="text-2xl font-extrabold">
+            <h2>Gas<span>Track</span></h2>
+          </div>
           <p>
-            At LOGO, we simplify your LPG management. <br/> Our
+            At GasTrack, we simplify your LPG management. <br/> Our
             convenient online platform lets you book refills, track your order
             status in real-time, and ensure a safe and reliable LPG delivery
             experience.

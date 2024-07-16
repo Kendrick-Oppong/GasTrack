@@ -3,5 +3,5 @@ export const navlinks = [
   { name: "Sign In", href: "/sign-in" },
   { name: "About", href: "/about" },
   { name: "Track", href: "/track" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "/contact-us" },
 ];

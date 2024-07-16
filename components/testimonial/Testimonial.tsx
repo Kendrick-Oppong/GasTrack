@@ -20,7 +20,7 @@ export default function TestimonyCarousel() {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="relative w-full max-w-[28rem] lg:max-w-3xl mx-auto rounded-lg shadow-2xl border border-primary"
+      className="relative w-full lg:max-w-[70%] xl:max-w-[50%] mx-auto rounded-lg shadow-2xl border border-primary"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >

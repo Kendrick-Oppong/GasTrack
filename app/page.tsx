@@ -1,7 +1,9 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { TestimonyCarousel } from "@/components/testimonial";
+import { ContactUsForm } from "@/components/form";
+
+import { ButtonLink } from "@/components/button";
 
 export default function Home() {
   return (
@@ -18,7 +20,7 @@ export default function Home() {
             Book refills, track your order, and manage your LPG needs
             effortlessly
           </p>
-          <Button size="lg">Book Now</Button>
+          <ButtonLink>Book Now</ButtonLink>
         </div>
         <div className="relative">
           <Image
@@ -33,7 +35,7 @@ export default function Home() {
       </section>
       {/* Specialization */}
       <section className="grid grid-cols-1 md:grid-cols-4 border border-primary py-8 items-center justify-center text-center rounded-lg divide-x-2 px-5 md:px-10 m-3 md:m-10 shadow-lg gap-4">
-        <div className="border border-secondary shadow-lg px-3 py-8 rounded-lg">
+        <div className="border-gray shadow-lg px-3 py-8 rounded-lg">
           <Image
             src="/delivery-transport-svgrepo-com.svg"
             width={100}
@@ -44,7 +46,7 @@ export default function Home() {
           />
           <h2 className="font-semibold mt-2">Fast Delivery</h2>
         </div>
-        <div className="border border-secondary shadow-lg px-3 py-8 rounded-lg">
+        <div className="border-gray shadow-lg px-3 py-8 rounded-lg">
           <Image
             src="/quality-svgrepo-com.svg"
             width={100}
@@ -55,7 +57,7 @@ export default function Home() {
           />
           <h2 className="font-semibold mt-2">Perfect Quality</h2>
         </div>
-        <div className="border border-secondary shadow-lg px-3 py-8 rounded-lg">
+        <div className="border-gray shadow-lg px-3 py-8 rounded-lg">
           <Image
             src="/location-global-svgrepo-com.svg"
             width={100}
@@ -66,7 +68,7 @@ export default function Home() {
           />
           <h2 className="font-semibold mt-2">Tracking System</h2>
         </div>
-        <div className="border border-secondary shadow-lg px-3 py-8 rounded-lg">
+        <div className="border-gray shadow-lg px-3 py-8 rounded-lg">
           <Image
             src="/customer-service-help-svgrepo-com.svg"
             width={100}
@@ -194,6 +196,14 @@ export default function Home() {
       <section className="mt-8 px-5 mb-10">
         <h1 className="text-center mb-8">Testimonial</h1>
         <TestimonyCarousel />
+      </section>
+
+      <section className="mt-[8rem]">
+        <h1 className="text-center">Got Any <span> Questions?</span></h1>
+        <p className="my-4 text-center">
+          Use this form below to get in touch with our team
+        </p>
+        <ContactUsForm />
       </section>
     </>
   );

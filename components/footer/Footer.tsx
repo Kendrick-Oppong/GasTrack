@@ -6,19 +6,20 @@ const Footer = () => {
       <div className="grid sm:grid-cols-2 justify-between">
         <div>
           <div className="text-2xl font-extrabold">
-            <h2>Gas<span>Track</span></h2>
+            <h2>
+              Gas<span>Track</span>
+            </h2>
           </div>
           <p>
-            At GasTrack, we simplify your LPG management. <br/> Our
-            convenient online platform lets you book refills, track your order
-            status in real-time, and ensure a safe and reliable LPG delivery
-            experience.
+            At GasTrack, we simplify your LPG management. <br /> Our convenient
+            online platform lets you book refills, track your order status in
+            real-time, and ensure a safe and reliable LPG delivery experience.
           </p>
         </div>
         <div className="mt-8 sm:mt-0 sm:text-center">
           <h2 className="text-primary font-semibold">Quick Links</h2>
           {navlinks.map((link) => (
-            <li className="" key={link.name}>
+            <li className="cursor-pointer hover:text-primary" key={link.name}>
               {link.name}
             </li>
           ))}

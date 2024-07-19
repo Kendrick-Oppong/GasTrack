@@ -14,12 +14,12 @@ const Navbar = () => {
         <div className="flex items-center list-none gap-4">
           {navlinks.map((link) => (
             <Link href={link.href} key={link.name}>
-              <li className="cursor-pointer hover:text-primary">
-                {link.name}
-              </li>
+              <li className="cursor-pointer hover:text-primary">{link.name}</li>
             </Link>
           ))}
-        <div><ModeToggle/></div>
+          <div>
+            <ModeToggle />
+          </div>
         </div>
       </nav>
     </header>

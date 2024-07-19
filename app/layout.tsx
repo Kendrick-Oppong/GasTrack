@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bai_Jamjuree } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { Toaster } from "react-hot-toast";
 import { Navbar } from "@/components/header";
 import { Footer } from "@/components/footer";
 import "./globals.css";
@@ -32,11 +33,24 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Toaster
+            containerStyle={{
+              top: 40,
+            }}
+            toastOptions={{
+              className: "",
+              style: {
+                border: "1px solid #713200",
+                color: "#713200",
+              },
+            }}
+            position="top-center"
+            reverseOrder={false}
+          />
           <Navbar />
-        <main>{children}</main>
-        <Footer />
+          <main>{children}</main>
+          <Footer />
         </ThemeProvider>
-      
       </body>
     </html>
   );

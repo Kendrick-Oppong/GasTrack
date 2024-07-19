@@ -1,6 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { TestimonyCarousel } from "@/components/testimonial";
+import { ContactUsForm } from "@/components/form";
+
 import { ButtonLink } from "@/components/button";
 
 export default function Home() {
@@ -194,6 +196,14 @@ export default function Home() {
       <section className="mt-8 px-5 mb-10">
         <h1 className="text-center mb-8">Testimonial</h1>
         <TestimonyCarousel />
+      </section>
+
+      <section className="mt-[8rem]">
+        <h1 className="text-center">Got Any <span> Questions?</span></h1>
+        <p className="my-4 text-center">
+          Use this form below to get in touch with our team
+        </p>
+        <ContactUsForm />
       </section>
     </>
   );

@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
+import { Bai_Jamjuree } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Navbar } from "@/components/header";
 import { Footer } from "@/components/footer";
 import "./globals.css";
 
-const archivo = Archivo({
+const bai_Jamjuree = Bai_Jamjuree({
   subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
   display: "swap",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
+
 
 export const metadata: Metadata = {
   title: "GasTrack",
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${archivo.className} text-lg`}>
+      <body className={`${bai_Jamjuree.className} text-lg`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -3,6 +3,7 @@ import { Bai_Jamjuree } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Toaster } from "react-hot-toast";
 import { Navbar } from "@/components/header";
+import { ScrollToTop } from "@/components/shared";
 import { Footer } from "@/components/footer";
 import "./globals.css";
 
@@ -11,7 +12,6 @@ const bai_Jamjuree = Bai_Jamjuree({
   weight: ["200", "300", "400", "500", "600", "700"],
   display: "swap",
 });
-
 
 export const metadata: Metadata = {
   title: "GasTrack",
@@ -49,6 +49,7 @@ export default function RootLayout({
           />
           <Navbar />
           <main>{children}</main>
+          <ScrollToTop/>
           <Footer />
         </ThemeProvider>
       </body>

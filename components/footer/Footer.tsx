@@ -1,12 +1,13 @@
-import { navlinks } from "@/constants/navlinks";
+import { navLinks } from "@/constants/navLinks";
+import Link from "next/link"
 
 const Footer = () => {
   return (
-    <footer className="bg-accent mt-36 px-5 py-6">
+    <footer className="bg-accent pt-36 px-5 pb-6 mt-auto ">
       <div className="grid sm:grid-cols-2 justify-between">
         <div>
           <div className="text-2xl font-extrabold">
-            <h2>
+            <h2 className="text-destructive">
               Gas<span>Track</span>
             </h2>
           </div>
@@ -18,10 +19,10 @@ const Footer = () => {
         </div>
         <div className="mt-8 sm:mt-0 sm:text-center">
           <h2 className="text-primary font-semibold">Quick Links</h2>
-          {navlinks.map((link) => (
-            <li className="cursor-pointer hover:text-primary" key={link.name}>
-              {link.name}
-            </li>
+          {navLinks.map((link) => (
+            <Link href={link.href} key={link.name}>
+              <li className="cursor-pointer hover:text-primary">{link.name}</li>
+            </Link>
           ))}
         </div>
       </div>

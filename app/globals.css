@@ -59,7 +59,7 @@
   }
 
   body {
-    @apply bg-background text-foreground min-h-dvh;
+    @apply bg-background text-foreground min-h-dvh flex flex-col;
   }
 
   h1 {
@@ -75,14 +75,13 @@
   }
 }
 
-
 @layer components {
   .border-gray {
-    @apply border border-gray-300 dark:border-gray-600
+    @apply border border-gray-300 dark:border-gray-600;
   }
 
-/* loading spinner */
-   .custom-loader {
+  /* loading spinner */
+  .custom-loader {
     width: 50px;
     height: 50px;
     display: grid;
@@ -90,7 +89,6 @@
     border-radius: 50%;
     border-color: #e4e4ed #0000;
     animation: s6 1s infinite linear;
-   
   }
   .custom-loader::before,
   .custom-loader::after {
@@ -115,5 +113,4 @@
       transform: rotate(1turn);
     }
   }
-
 }

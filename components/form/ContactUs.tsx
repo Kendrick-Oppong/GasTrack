@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { contactUsSchema } from "@/validators/formSchema";
-import { Asterisk, Loader, Mail, } from "lucide-react";
+import { Asterisk, Loader, Mail } from "lucide-react";
 import { ButtonLink } from "@/components/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useEffect } from "react";
@@ -20,37 +20,36 @@ import { isError } from "@/lib/isFormFieldError";
 import toast from "react-hot-toast";
 import { sendContactUsMessage } from "@/lib/sendContactUsMessage";
 
-
-  // Define the fields array with correct types
-  const fields: Array<{
-    name: "name" | "email" | "subject" | "message";
-    label: string;
-    type: string;
-    placeholder: string;
-    gridClass: string;
-  }> = [
-    {
-      name: "name",
-      label: "Name",
-      type: "text",
-      placeholder: "Enter your name",
-      gridClass: "sm:col-span-1",
-    },
-    {
-      name: "email",
-      label: "Email",
-      type: "email",
-      placeholder: "Enter your email",
-      gridClass: "sm:col-span-1",
-    },
-    {
-      name: "subject",
-      label: "Subject",
-      type: "text",
-      placeholder: "Title of message",
-      gridClass: "sm:col-span-2",
-    },
-  ];
+// Define the fields array with correct types
+const fields: Array<{
+  name: "name" | "email" | "subject" | "message";
+  label: string;
+  type: string;
+  placeholder: string;
+  gridClass: string;
+}> = [
+  {
+    name: "name",
+    label: "Name",
+    type: "text",
+    placeholder: "Enter your name",
+    gridClass: "sm:col-span-1",
+  },
+  {
+    name: "email",
+    label: "Email",
+    type: "email",
+    placeholder: "Enter your email",
+    gridClass: "mt-6 sm:mt-0 sm:col-span-1",
+  },
+  {
+    name: "subject",
+    label: "Subject",
+    type: "text",
+    placeholder: "Title of message",
+    gridClass: "sm:col-span-2",
+  },
+];
 
 const ContactUsForm = () => {
   const form = useForm<z.infer<typeof contactUsSchema>>({
@@ -77,14 +76,11 @@ const ContactUsForm = () => {
   }, [isSubmitSuccessful, reset]);
 
   async function onSubmit(data: z.infer<typeof contactUsSchema>) {
-    await sendContactUsMessage(data)
-    console.log(data)
+    await sendContactUsMessage(data);
   }
 
-
-
   return (
-    <div className="mx-auto max-w-6xl text-lg">
+    <div className="mx-auto max-w-6xl text-lg px-5">
       <div className="mx-auto mb-10 rounded-lg border border-primary px-3 pb-10 shadow-2xl">
         <Form {...form}>
           <form
@@ -188,8 +184,10 @@ const ContactUsForm = () => {
                         {field.value.length === 200
                           ? "Maximum characters exceeded"
                           : `${Math.round(
-                              (field.value.length / 200) * 100,
-                            )}% of maximum length (${field.value.length}/${200})`}
+                              (field.value.length / 200) * 100
+                            )}% of maximum length (${
+                              field.value.length
+                            }/${200})`}
                       </small>
                     )}
                     <FormMessage />

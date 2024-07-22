@@ -1,5 +1,5 @@
-import { navLinks } from "@/constants/navLinks";
-import Link from "next/link"
+import { navLinks } from "@/constants";
+import Link from "next/link";
 
 const Footer = () => {
   return (

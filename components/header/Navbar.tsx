@@ -5,7 +5,7 @@ import { ModeToggle } from "@/components/theme";
 import Link from "next/link";
 import { navLinks } from "@/constants/navlinks";
 import {usePathname} from "next/navigation"
-import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink,LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import {useKindeBrowserClient} from "@kinde-oss/kinde-auth-nextjs";
 
 
@@ -44,7 +44,7 @@ console.log(isLoggedIn)
               </Link>
             )
           )}
-
+<LogoutLink>logoout</LogoutLink>
           <div>
             <ModeToggle />
           </div>

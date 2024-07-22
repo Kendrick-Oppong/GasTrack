@@ -4,12 +4,13 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import prisma from "@/lib/db";
 
-const client = jwksClient({
-  jwksUri: `${process.env.KINDE_ISSUER_URL}/.well-known/jwks.json`,
-});
+const issuer = process.env.KINDE_ISSUER_URL;
 
 export async function POST(req: Request) {
   try {
+    const client = jwksClient({
+      jwksUri: `${issuer}/.well-known/jwks.json`,
+    });
     // Get the token from the request
     const token = await req.text();
     const { getUser } = getKindeServerSession();

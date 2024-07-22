@@ -3,7 +3,7 @@ import { Menu } from "lucide-react";
 import { MobileNavbar } from ".";
 import { ModeToggle } from "@/components/theme";
 import Link from "next/link";
-import { navLinks } from "@/constants";
+import { navLinks } from "@/constants/navlinks";
 import {usePathname} from "next/navigation"
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import {useKindeBrowserClient} from "@kinde-oss/kinde-auth-nextjs";

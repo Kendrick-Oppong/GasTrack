@@ -10,6 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu";
 
 export default function ModeToggle() {
@@ -28,9 +29,11 @@ export default function ModeToggle() {
         <DropdownMenuItem onClick={() => setTheme("light")}>
           Light
         </DropdownMenuItem>
+          <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => setTheme("dark")}>
           Dark
         </DropdownMenuItem>
+          <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => setTheme("system")}>
           System
         </DropdownMenuItem>

@@ -7,21 +7,21 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-const MobileNavbar = ({children}:{children:React.ReactNode}) => {
+const MobileNavbar = ({ children }: { children: React.ReactNode }) => {
   return (
-      <Sheet>
-        <SheetTrigger>{children}</SheetTrigger>
-        <SheetContent>
-          <SheetHeader>
-            <SheetTitle>Are you absolutely sure?</SheetTitle>
-            <SheetDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </SheetDescription>
-          </SheetHeader>
-        </SheetContent>
-      </Sheet>
-  )
-}
+    <Sheet>
+      <SheetTrigger>{children}</SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Are you absolutely sure?</SheetTitle>
+          <SheetDescription>
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </SheetDescription>
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
+  );
+};
 
 export default MobileNavbar;

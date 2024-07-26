@@ -1,10 +1,10 @@
-import { contactUsSchema } from "@/validators/formSchema";
+import { contactUsSchema,bookingFormSchema } from "@/validators/formSchema";
 import { FieldError, FieldErrors, UseFormReturn } from "react-hook-form";
 import { z } from "zod";
 
-type SendContactUsMessage = z.infer<typeof contactUsSchema>;
+type FormFields = z.infer<typeof contactUsSchema> | z.infer<typeof bookingFormSchema>;
 
-export const isError = <T extends SendContactUsMessage>(
+export const isError = <T extends FormFields>(
   fieldName: string,
   errors: FieldErrors<T>,
   form: UseFormReturn<T>

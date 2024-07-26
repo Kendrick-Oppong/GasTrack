@@ -50,9 +50,11 @@ const NavLinks = () => {
         )
       )}
 
+  {/* Mode toggle icon */}
       <div>
         <ModeToggle />
       </div>
+        {/* Mobile navigation menu */}
       <div className="md:hidden cursor-pointer flex flex-col items-center">
         <MobileNavbar>
           <Menu size={25} className="shadow-lg" />

@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import Link from "next/link";
 import { TestimonyCarousel } from "@/components/testimonial";
 import { ContactUsForm } from "@/components/form";
 import { ButtonLink } from "@/components/button";
@@ -19,7 +20,9 @@ export default function Home() {
             Book refills, track your order, and manage your LPG needs
             effortlessly
           </p>
-          <ButtonLink>Book Now</ButtonLink>
+          <Link href="/book-now">
+              <ButtonLink>Book Now</ButtonLink>
+          </Link>
         </div>
         <div className="relative">
           <Image

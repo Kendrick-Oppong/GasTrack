@@ -43,10 +43,8 @@ model Booking {
   deliveryTime String
   latitude     Float
   longitude    Float
+  userId       String
+  user         User     @relation(fields: [userId], references: [kindeId])
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-
-  // Foreign key to reference the User model using kindeId
-  userId String
-  user   User   @relation(fields: [userId], references: [kindeId])
 }

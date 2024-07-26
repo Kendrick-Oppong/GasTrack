@@ -20,3 +20,4 @@ export const contactUsSchema = z.object({
     .min(5, { message: "Your message must be at least 5 characters long" })
     .max(200, { message: "Message cannot exceed 200 characters" }),
 });
+ export const  bookingFormSchema= z.object({})

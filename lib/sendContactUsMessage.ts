@@ -12,7 +12,6 @@ export const sendContactUsMessage = async (values: SendContactUsMessage) => {
     subject: values.subject,
     message: values.message,
   };
-  console.log("template",templateParams);
   try {
     await emailjs.send(
       process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,

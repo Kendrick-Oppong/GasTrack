@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -19,13 +20,23 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Asterisk, Loader, SendHorizontal } from "lucide-react";
+import { Asterisk, Loader, SendHorizontal, PackagePlus } from "lucide-react";
 import { ButtonLink } from "@/components/button";
 import { bookingFormSchema } from "@/validators/formSchema";
-import { useEffect } from "react";
+import { useAction } from "next-safe-action/hooks";
 import toast from "react-hot-toast";
+import { createBooking } from "@/lib/user/createBooking";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import useGetUserLocation from "@/hooks/useGetUserLocation";
+import { useRouter } from 'next/navigation'
+
 
 const BookingForm = () => {
+  const { user } = useKindeBrowserClient();
+   const router = useRouter();
+  const { getPosition, coords } =
+    useGetUserLocation();
+
   const form = useForm<z.infer<typeof bookingFormSchema>>({
     resolver: zodResolver(bookingFormSchema),
     defaultValues: {
@@ -37,22 +48,61 @@ const BookingForm = () => {
     },
   });
 
+  const { execute, isExecuting, hasSucceeded, reset } = useAction(
+    createBooking,
+    {
+      onSuccess({ data }) {
+        console.log("HELLO FROM ONSUCCESS", data);
+        toast.success(
+          (data?.success as string) || "Booking successfully created"
+        );
+      },
+      onError() {
+        toast.error("Failed to create booking");
+      },
+      onSettled({ result }) {
+        console.log("HELLO FROM ONSETTLED", result);
+      },
+      onExecute() {
+        toast("Creating Booking", {
+          icon: <PackagePlus />,
+        });
+      },
+    }
+  );
+
   const {
     control,
     handleSubmit,
-    reset,
-    formState: { isValid, errors, isSubmitSuccessful, isSubmitting },
+    reset: refetch,
+    formState: { isValid, errors },
   } = form;
 
   useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset();
+    if (user) {
+      refetch((prevValues) => ({
+        ...prevValues,
+        fullName: `${user?.given_name} ${user?.family_name}` || "",
+        email: user?.email ?? "",
+      }));
     }
-  }, [isSubmitSuccessful, reset]);
+  }, [user, refetch]);
 
+  useEffect(() => {
+    if (hasSucceeded) {
+      reset();
+      setTimeout(() => {
+        router.push("/track");
+      }, 1000);
+    }
+  }, [hasSucceeded, reset, router]);
   async function onSubmit(data: z.infer<typeof bookingFormSchema>) {
-    console.log(data);
-    // Handle form submission
+    if (coords) {
+      const { latitude, longitude } = coords;
+      execute({ ...data, latitude, longitude });
+    } else {
+      execute(data);
+    }
   }
 
   return (
@@ -76,7 +126,7 @@ const BookingForm = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      disabled={isSubmitting}
+                      disabled={isExecuting}
                       placeholder="Enter your name"
                       type="text"
                       className={`${
@@ -103,7 +153,7 @@ const BookingForm = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      disabled={isSubmitting}
+                      disabled={isExecuting}
                       placeholder="Enter your email"
                       type="email"
                       className={`${
@@ -130,7 +180,7 @@ const BookingForm = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      disabled={isSubmitting}
+                      disabled={isExecuting}
                       placeholder="Enter your phone number"
                       type="tel"
                       className={`${
@@ -157,7 +207,7 @@ const BookingForm = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      disabled={isSubmitting}
+                      disabled={isExecuting}
                       placeholder="Enter your address"
                       type="text"
                       className={`${
@@ -181,49 +231,48 @@ const BookingForm = () => {
                     Cylinder Size
                     <Asterisk className="mb-[3px] inline-flex h-4 w-4 text-destructive" />
                   </FormLabel>
-                  <FormControl>
-                    <Select
-                      onValueChange={field.onChange}
-                      value={field.value}
-                      disabled={isSubmitting}
-                    >
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
                       <SelectTrigger
                         className={`${
                           errors.cylinderSize
                             ? "border-destructive focus-visible:ring-destructive"
-                            : "border-primary w-full"
+                            : "border-primary"
                         }`}
                       >
                         <SelectValue placeholder="Select cylinder size" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="Small - 5kg">Small - 5kg</SelectItem>
-                        <SelectItem value="Medium - 12kg">
-                          Medium - 12kg
-                        </SelectItem>
-                        <SelectItem value="Large - 25kg">
-                          Large - 25kg
-                        </SelectItem>
-                        <SelectItem value="Extra Large - 45kg">
-                          Extra Large - 45kg
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="6kg">6kg</SelectItem>
+                      <SelectItem value="14kg">14kg</SelectItem>
+                      <SelectItem value="25kg">25kg</SelectItem>
+                    </SelectContent>
+                  </Select>
                   <FormMessage>{errors.cylinderSize?.message}</FormMessage>
                 </FormItem>
               )}
             />
 
             <ButtonLink
-              disabled={isSubmitting}
+              disabled={isExecuting}
               className="mt-4 w-full"
               type="submit"
-              onClick={() => !isValid && toast.error("Please fill all fields")}
+              onClick={() => {
+                if (!isValid) {
+                  toast.error("Please fill all fields");
+                  return;
+                }
+
+                getPosition();
+              }}
             >
-              {isSubmitting ? (
+              {isExecuting ? (
                 <>
-                  Sending message
+                  Creating Booking
                   <Loader className="ml-1 h-5 w-5 animate-spin" />
                 </>
               ) : (

@@ -8,7 +8,7 @@ const useGetUserLocation = () => {
         enableHighAccuracy: true,
       },
       watchPosition: true,
-      // suppressLocationOnMount: true,
+      watchLocationPermissionChange: true,
       isOptimisticGeolocationEnabled: false,
       userDecisionTimeout: 5000,
       onError(positionError) {
@@ -17,6 +17,7 @@ const useGetUserLocation = () => {
       },
     });
 
+  
   return {
     coords,
     isGeolocationAvailable,

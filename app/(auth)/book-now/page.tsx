@@ -28,6 +28,12 @@ const BookNowPage = async () => {
           delivery service at your convenience <br />
           Follow our straightforward steps to place your booking
         </p>
+        <p className="mb-6 font-medium max-w-5xl mx-auto border border-destructive p-3 rounded-lg">
+          For a seamless delivery experience, we kindly request access to your
+          location. This helps us ensure timely and accurate delivery of your
+          LPG refills. If you prefer not to share your location, you can still
+          proceed with the booking.
+        </p>
       </header>
       <section className="grid grid-cols-1 md:grid-cols-2 px-5 my-12">
         <div>

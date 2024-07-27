@@ -1,5 +1,4 @@
-
-"use server"
+"use server";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 export async function getUserStatus() {
@@ -10,5 +9,5 @@ export async function getUserStatus() {
     getPermission("admin"),
     getUser(),
   ]);
- return { isUserAuthenticated, canViewAdmin , user};
+  return { isUserAuthenticated, canViewAdmin, user };
 }

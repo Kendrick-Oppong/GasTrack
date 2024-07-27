@@ -43,8 +43,16 @@ model Booking {
   deliveryTime String
   latitude     Float
   longitude    Float
+  status       Status   @default(PENDING)
   userId       String
   user         User     @relation(fields: [userId], references: [kindeId])
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+}
+
+enum Status {
+  PENDING
+  CONFIRMED
+  DELIVERED
+  CANCELLED
 }

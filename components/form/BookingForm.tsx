@@ -28,14 +28,12 @@ import toast from "react-hot-toast";
 import { createBooking } from "@/lib/user/createBooking";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import useGetUserLocation from "@/hooks/useGetUserLocation";
-import { useRouter } from 'next/navigation'
-
+import { useRouter } from "next/navigation";
 
 const BookingForm = () => {
   const { user } = useKindeBrowserClient();
-   const router = useRouter();
-  const { getPosition, coords } =
-    useGetUserLocation();
+  const router = useRouter();
+  const { getPosition, coords } = useGetUserLocation();
 
   const form = useForm<z.infer<typeof bookingFormSchema>>({
     resolver: zodResolver(bookingFormSchema),
@@ -48,16 +46,17 @@ const BookingForm = () => {
     },
   });
 
-  const { execute, isExecuting, hasSucceeded, reset } = useAction(
-    createBooking,
-    {
+  const { execute, isExecuting, hasSucceeded, reset, hasErrored, result } =
+    useAction(createBooking, {
       onSuccess({ data }) {
         console.log("HELLO FROM ONSUCCESS", data);
-        toast.success(
-          (data?.success as string) || "Booking successfully created"
-        );
+        if (data?.success)
+          toast.success(data?.success || "Booking successfully created");
       },
-      onError() {
+      onError({ error }) {
+        if (error.serverError) {
+          toast.error(error.serverError);
+        }
         toast.error("Failed to create booking");
       },
       onSettled({ result }) {
@@ -68,8 +67,7 @@ const BookingForm = () => {
           icon: <PackagePlus />,
         });
       },
-    }
-  );
+    });
 
   const {
     control,
@@ -89,13 +87,14 @@ const BookingForm = () => {
   }, [user, refetch]);
 
   useEffect(() => {
-    if (hasSucceeded) {
+    if (hasSucceeded && !hasErrored && result) {
       reset();
       setTimeout(() => {
         router.push("/track");
       }, 1000);
     }
-  }, [hasSucceeded, reset, router]);
+  }, [hasErrored, hasSucceeded, reset, result, router]);
+
   async function onSubmit(data: z.infer<typeof bookingFormSchema>) {
     if (coords) {
       const { latitude, longitude } = coords;

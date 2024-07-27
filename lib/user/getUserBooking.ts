@@ -22,10 +22,14 @@ export async function getUserBooking() {
       },
     });
 
-    console.log(userWithBookings);
+    if (userWithBookings.length === 0) {
+      return [];
+    }
+
+  
     return userWithBookings;
   } catch (error) {
     console.log(error);
-    throw new Error("Failed to fetch bookings");
+    //  if (error) throw new Error("Failed to get booking");
   }
 }

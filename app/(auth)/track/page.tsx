@@ -24,7 +24,7 @@ const TrackPage = async () => {
           Tracking
         </h1>
       </section>
-      {!userBookings.length ? (
+      {!userBookings?.length ? (
         <section className="text-center my-8">
           <h2 className="text-xl flex items-center justify-center font-semibold gap-2 mb-4">
             <CircleAlert className="text-destructive" />

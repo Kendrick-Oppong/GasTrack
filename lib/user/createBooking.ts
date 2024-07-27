@@ -22,7 +22,7 @@ export const createBooking = actionClient
     }
 
     try {
-      await prisma.booking.create({
+      const createdBooking = await prisma.booking.create({
         data: {
           fullName: data.fullName ?? `${user?.given_name} ${user?.family_name}`,
           email: data.email ?? user?.email,
@@ -36,10 +36,15 @@ export const createBooking = actionClient
           userId: user?.id as string,
         },
       });
-      revalidatePath("/book-now");
-      return { success: "Booking successfuly created" };
+
+      if (createdBooking) {
+        revalidatePath("/track");
+        return { success: "Booking successfully created" };
+      } else {
+        return { error: "Failed to create booking" };
+      }
     } catch (error) {
-      console.error(error);
+      console.error("Failed to create booking:", error);
       return { error: "Failed to create booking" };
     }
   });

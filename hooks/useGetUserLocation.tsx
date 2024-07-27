@@ -12,12 +12,11 @@ const useGetUserLocation = () => {
       isOptimisticGeolocationEnabled: false,
       userDecisionTimeout: 5000,
       onError(positionError) {
-        console.log(positionError);
-        toast.error(positionError?.message as string);
+       console.log(positionError);
+       positionError && toast.error(positionError?.message as string);
       },
     });
 
-  
   return {
     coords,
     isGeolocationAvailable,

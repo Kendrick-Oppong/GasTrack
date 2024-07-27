@@ -1,6 +1,6 @@
 import { getUserStatus } from "@/lib/user/getUserStatus";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
-
+import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,14 +29,14 @@ const ProfileIcon = async () => {
           <DropdownMenuContent>
             {canViewAdmin?.isGranted ? (
               <>
-                <DropdownMenuItem>Dashboard</DropdownMenuItem>
+                <DropdownMenuItem><Link href="/dashboard">Dashboard</Link></DropdownMenuItem>
                 <DropdownMenuSeparator />
               </>
             ) : (
               <>
-                <DropdownMenuItem>Track</DropdownMenuItem>
+                <DropdownMenuItem><Link href="/track">Track</Link></DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Account</DropdownMenuItem>
+                <DropdownMenuItem><Link href="/profile">Profile</Link></DropdownMenuItem>
                 <DropdownMenuSeparator />
               </>
             )}

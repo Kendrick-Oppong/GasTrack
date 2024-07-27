@@ -49,7 +49,7 @@ export default function UserBookingTrackTable({
             <TableRow key={booking?.id}>
               <TableCell>{booking?.id}</TableCell>
               <TableCell>
-                <p className="w-fit p-1 px-2 rounded-md border   border-primary">
+                <p className="w-fit p-1 px-2 rounded-md border-2    border-orange-500 ">
                   {booking.status.charAt(0) +
                     booking.status.slice(1).toLowerCase()}
                 </p>
@@ -58,11 +58,9 @@ export default function UserBookingTrackTable({
                 <ButtonLink className="">View Details</ButtonLink>
               </TableCell>
               <TableCell>
-                <DeleteAction bookId={booking.id}>
-                  <ButtonLink type="button" className="bg-destructive">
-                    Delete
-                  </ButtonLink>
-                </DeleteAction>
+                <DeleteAction bookId={booking.id}/>
+                
+              
               </TableCell>
             </TableRow>
           ))}

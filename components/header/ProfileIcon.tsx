@@ -29,7 +29,7 @@ const ProfileIcon = async () => {
           <DropdownMenuContent>
             {canViewAdmin?.isGranted ? (
               <>
-                <DropdownMenuItem><Link href="/dashboard">Dashboard</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link href="/admin/customer">Dashboard</Link></DropdownMenuItem>
                 <DropdownMenuSeparator />
               </>
             ) : (

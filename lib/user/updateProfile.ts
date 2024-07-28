@@ -34,7 +34,7 @@ export const updateProfile = actionClient
       });
 
       if (updatedProfile) {
-        revalidatePath("/profile");
+        revalidatePath("/profile",);
         return { success: "Profile successfully updated" };
       } else {
         return { error: "Failed to update profile" };

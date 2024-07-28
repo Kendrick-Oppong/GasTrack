@@ -17,7 +17,7 @@ interface UserUsersTableProps {
     firstName: string;
     lastName: string;
     email: string;
-    profileImage: string | null;
+    profileImage: string;
     phoneNumber: string;
     address: string | null;
   }[];

@@ -37,28 +37,28 @@ const AdminDashBoardLayout = async ({
             <nav className="grid items-start px-2 font-medium lg:px-4">
               <Link
                 href="/admin/customer"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
+                className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
               >
                 Customers
               </Link>
 
               <Link
                 href="/admin/stations"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
+                className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
               >
                 Stations
               </Link>
 
               <Link
                 href="/admin/riders"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
+                className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
               >
                 Workers
               </Link>
 
               <Link
                 href="/admin/map"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
+                className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
               >
                 Map
               </Link>
@@ -89,7 +89,7 @@ const AdminDashBoardLayout = async ({
                 <SheetClose asChild>
                   <Link
                     href="/admin/customer"
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
+                    className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
                   >
                     Customers
                   </Link>
@@ -98,7 +98,7 @@ const AdminDashBoardLayout = async ({
                 <SheetClose asChild>
                   <Link
                     href="/admin/stations"
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
+                    className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
                   >
                     Stations
                   </Link>
@@ -107,7 +107,7 @@ const AdminDashBoardLayout = async ({
                 <SheetClose asChild>
                   <Link
                     href="/admin/riders"
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
+                    className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
                   >
                     Workers
                   </Link>
@@ -116,7 +116,7 @@ const AdminDashBoardLayout = async ({
                 <SheetClose asChild>
                   <Link
                     href="/admin/map"
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
+                    className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
                   >
                     Map
                   </Link>
@@ -126,9 +126,7 @@ const AdminDashBoardLayout = async ({
           </Sheet>
         </header>
         <main className="flex flex-1 flex-col gap-4 p-2 lg:gap-6 lg:p-4">
-          <div className="flex items-center">
-          
-          </div>
+          <div className="flex items-center"></div>
           {children}
         </main>
       </div>

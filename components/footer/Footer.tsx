@@ -4,8 +4,8 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="bg-accent pt-36 px-5 pb-6 mt-auto ">
-      <div className="grid sm:grid-cols-2 justify-between">
-        <div>
+      <div className="grid  sm:grid-cols-3 justify-between">
+        <div className="col-span-2">
           <div className="text-2xl font-extrabold">
             <h2 className="text-destructive">
               Gas<span>Track</span>
@@ -13,11 +13,10 @@ const Footer = () => {
           </div>
           <p>
             At GasTrack, we simplify your LPG management. <br /> Our convenient
-            online platform lets you book refills, track your order status in
-            real-time, and ensure a safe and reliable LPG delivery experience.
+            online platform lets you book refills, track your order status 
           </p>
         </div>
-        <div className="mt-8 sm:mt-0 sm:text-center">
+        <div className="mt-8 sm:mt-0">
           <h2 className="text-primary font-semibold">Quick Links</h2>
           {navLinks.map((link) => (
             <Link href={link.href} key={link.name}>

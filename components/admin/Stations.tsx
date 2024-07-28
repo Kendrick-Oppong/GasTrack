@@ -35,7 +35,7 @@ export default function StationList({ stations }: Readonly<StationProps>) {
         {filteredStations.map((station) => (
           <div
             key={station.id}
-            className="border space-y-4 py-2 border-primary rounded-md px-5 [&>div]:grid [&>div]:grid-cols-3 [&>div]:items-center [&>div]:gap-4"
+            className="!w-32 border space-y-4 py-2 border-primary rounded-md px-5 [&>div]:grid [&>div]:grid-cols-3 [&>div]:items-center [&>div]:gap-4"
           >
             <div>
               <p className="font-semibold">Name</p>

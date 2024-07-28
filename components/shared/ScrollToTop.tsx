@@ -10,7 +10,7 @@ const ScrollToTop = () => {
   };
 
   return (
-    <div role="button" className="fixed bottom-3 right-3 cursor-pointer">
+    <div className="fixed z-[1000] bottom-3 right-3 cursor-pointer">
       <Image
         src="/upload.png"
         width={50}

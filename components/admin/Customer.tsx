@@ -78,13 +78,15 @@ export default function CustomerNames({
           {filteredUsers.map((user) => (
             <TableRow key={user?.id}>
               <TableCell>
-                {user?.firstName} {user?.lastName}
+                <p>
+                  {user?.firstName} {user?.lastName}
+                </p>
               </TableCell>
               <TableCell>
-                <p className=" ">{user?.email}</p>
+                <p>{user?.email}</p>
               </TableCell>
               <TableCell>
-                <p className=" ">{user?.phoneNumber}</p>
+                <p>{user?.phoneNumber}</p>
               </TableCell>
             </TableRow>
           ))}

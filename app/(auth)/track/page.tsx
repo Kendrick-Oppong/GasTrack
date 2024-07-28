@@ -9,18 +9,18 @@ import { UserBookingTrackTable } from "@/components/shared";
 import { getUserBooking } from "@/lib/user/getUserBooking";
 
 const TrackPage = async () => {
-  // const { isAuthenticated } = getKindeServerSession();
-  // const isLoggedIn = await isAuthenticated();
+  const { isAuthenticated } = getKindeServerSession();
+  const isLoggedIn = await isAuthenticated();
 
-  // if (!isLoggedIn) {
-  //   redirect("/api/auth/login?");
-  // }
+  if (!isLoggedIn) {
+    redirect("/api/auth/login?");
+  }
   const userBookings = await getUserBooking();
 
   return (
     <>
       <section className="bg-[url('https://images.pexels.com/photos/18982333/pexels-photo-18982333/free-photo-of-golden-renault-trucks-t.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-no-repeat bg-center bg-cover h-96 w-full">
-        <h1 className="flex items-center justify-center w-full h-full text-primary bg-black/90">
+        <h1 className="flex items-center justify-center w-full h-full text-primary bg-black/90 dark:bg-black/70">
           Tracking
         </h1>
       </section>

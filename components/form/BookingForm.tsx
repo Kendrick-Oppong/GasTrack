@@ -64,7 +64,7 @@ const BookingForm = () => {
       },
       onExecute() {
         toast("Creating Booking", {
-          icon: <PackagePlus />,
+          icon: <Loader className="ml-1 h-5 w-5 animate-spin" />,
         });
       },
     });

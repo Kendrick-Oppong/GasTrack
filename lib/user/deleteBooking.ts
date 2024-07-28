@@ -7,32 +7,6 @@ import { actionClient } from "./safe-action";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
-// export async function deleteBooking(bookingId: string) {
-//   try {
-//     const booking = await prisma.booking.findUnique({
-//       where: {
-//         id: bookingId,
-//       },
-//     });
-
-//     if (!booking) {
-//       return { error: "Booking does not exist" };
-//     }
-
-//     await prisma.booking.delete({
-//       where: {
-//         id: bookingId,
-//       },
-//     });
-
-//     revalidatePath("/track");
-//     return { success: "Booking successfully deleted" };
-//   } catch (error) {
-//     console.error("Failed to delete booking:", error);
-//     return { error: "Failed to delete booking" };
-//   }
-// }
-
 const deleteSchema = z.object({
   bookingId: z.string(),
 });

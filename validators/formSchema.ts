@@ -78,3 +78,34 @@ export const bookingFormServerSchema = z.object({
   latitude: z.number().optional(),
   longitude: z.number().optional(),
 });
+
+export const profileFormSchema = z.object({
+  firstName: z
+    .string()
+    .trim()
+    .max(50, { message: "First name cannot exceed 50 characters" })
+    .optional(),
+  lastName: z
+    .string()
+    .trim()
+    .max(50, { message: "Last name cannot exceed 50 characters" })
+    .optional(),
+  email: z
+    .string()
+    .trim()
+    .regex(emailRegex, { message: "Invalid email format" })
+    .min(1, { message: "Email is required" }),
+  phoneNumber: z
+    .string()
+    .trim()
+    .max(15, { message: "Phone number cannot exceed 15 characters" })
+    .optional()
+    .refine((value) => !value || /^\+?[0-9]+$/.test(value), {
+      message: "Invalid phone number format",
+    }),
+  address: z
+    .string()
+    .trim()
+    .max(255, { message: "Address cannot exceed 255 characters" })
+    .optional(),
+});

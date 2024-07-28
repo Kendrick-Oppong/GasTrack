@@ -5,5 +5,5 @@ export default withAuth({
 });
 
 export const config = {
-  matcher: ["/track", "/book-now"],
+  matcher: ["/track", "/book-now", "/profile"],
 };

@@ -26,10 +26,34 @@ export async function getUserBooking() {
       return [];
     }
 
-  
     return userWithBookings;
   } catch (error) {
     console.log(error);
-    //  if (error) throw new Error("Failed to get booking");
+  }
+}
+
+export async function getUserDetails() {
+  const { user, isUserAuthenticated } = await getUserStatus();
+
+  if (!isUserAuthenticated) {
+    redirect("/api/auth/login?");
+  }
+
+  try {
+    const userDetails = await prisma.user.findUnique({
+      where: {
+        kindeId: user?.id,
+        role: "USER",
+      },
+    });
+
+    if (!userDetails) {
+      throw new Error("User not found");
+    }
+
+    return userDetails;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch user details");
   }
 }

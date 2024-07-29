@@ -246,9 +246,13 @@ const BookingForm = () => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="6kg">6kg</SelectItem>
-                      <SelectItem value="14kg">14kg</SelectItem>
-                      <SelectItem value="25kg">25kg</SelectItem>
+                      <SelectItem value="Small 6kg">Small 6kg</SelectItem>
+                      <SelectItem value="Medium 14kg">Medium 14kg</SelectItem>
+                      <SelectItem value="Large 25kg">Large 25kg</SelectItem>
+                      <SelectItem value="Extra large 45kg">
+                        Extra large 45kg
+                      </SelectItem>
+                      <SelectItem value="60kg">60kg</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage>{errors.cylinderSize?.message}</FormMessage>

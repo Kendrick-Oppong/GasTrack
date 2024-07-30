@@ -6,6 +6,7 @@ import type { Station } from "@prisma/client";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import L from "leaflet";
 import { Label } from "@/components/ui/label";
+import Image from "next/image";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const fuelIcon = L.icon({
@@ -105,6 +106,14 @@ const StationsMap = ({ stations }: StationProps) => {
                         <p className="font-semibold">Working Hours</p>
                         <p className="col-span-2">{station?.workingHours}</p>
                       </div>
+                      <div className="relative h-[6rem] w-full">
+                        <Image
+                          src={station?.photo as string}
+                          className="object-cover rounded-sm"
+                          fill
+                          alt=""
+                        />
+                      </div>
                     </div>
                   </Popup>
                 </Marker>
@@ -112,7 +121,7 @@ const StationsMap = ({ stations }: StationProps) => {
             </MarkerClusterGroup>
             <div className="absolute z-[1000] top-2 right-2 p-3 rounded-md bg-secondary">
               <RadioGroup
-              className="space-y-2"
+                className="space-y-2"
                 defaultValue="OpenStreetMap_DE"
                 onValueChange={(value) =>
                   handleTileLayerChange(value as TileLayerKey)

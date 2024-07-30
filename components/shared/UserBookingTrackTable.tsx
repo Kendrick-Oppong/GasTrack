@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/table";
 import { ButtonLink } from "@/components/button";
 import { DeleteAction } from "@/components/alert";
+import { getStatusBorderColor } from "@/lib/getStatusBorderColor";
 
 interface UserBookingsTableProps {
   bookings: Booking[];
@@ -49,18 +50,24 @@ export default function UserBookingTrackTable({
             <TableRow key={booking?.id}>
               <TableCell>{booking?.id}</TableCell>
               <TableCell>
-                <p className="w-fit p-1 px-2 rounded-md border-2    border-orange-500 ">
-                  {booking.status.charAt(0) +
-                    booking.status.slice(1).toLowerCase()}
+                <p
+                  className={`col-span-2 w-fit p-1 px-2 rounded-md border-2 border-orange-500`}
+                >
+                  {booking?.status.charAt(0) +
+                    booking?.status.slice(1).toLowerCase()}
                 </p>
               </TableCell>
               <TableCell>
                 <ButtonLink className="">View Details</ButtonLink>
               </TableCell>
               <TableCell>
-                <DeleteAction bookId={booking.id}/>
-                
-              
+                <DeleteAction
+                  onErrorMessage="Failed to delete booking"
+                  onSuccessMessage="Booking successfully deleted"
+                  deleteType="booking"
+                  description="This will permanently delete your booking"
+                  id={booking?.id}
+                />
               </TableCell>
             </TableRow>
           ))}

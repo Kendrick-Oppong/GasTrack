@@ -56,6 +56,13 @@ const AdminDashBoardLayout = async ({
                 Workers
               </Link>
 
+                 <Link
+                href="/admin/booking"
+                className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
+              >
+                Booking
+              </Link>
+
               <Link
                 href="/admin/map"
                 className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
@@ -119,6 +126,14 @@ const AdminDashBoardLayout = async ({
                     className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
                   >
                     Map
+                  </Link>
+                </SheetClose>
+                  <SheetClose asChild>
+                  <Link
+                    href="/admin/booking"
+                    className="cursor-pointer flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary"
+                  >
+                    Booking
                   </Link>
                 </SheetClose>
               </nav>

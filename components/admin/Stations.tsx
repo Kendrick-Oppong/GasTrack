@@ -10,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { DeleteAction } from "../alert";
 
 interface StationProps {
   stations: Station[];
@@ -35,7 +36,7 @@ export default function StationList({ stations }: Readonly<StationProps>) {
         {filteredStations.map((station) => (
           <div
             key={station.id}
-            className="!w-32 border space-y-4 py-2 border-primary rounded-md px-5 [&>div]:grid [&>div]:grid-cols-3 [&>div]:items-center [&>div]:gap-4"
+            className="border space-y-4 p-5 border-primary rounded-md  [&>div]:grid [&>div]:grid-cols-3 [&>div]:items-center [&>div]:gap-4"
           >
             <div>
               <p className="font-semibold">Name</p>
@@ -57,6 +58,16 @@ export default function StationList({ stations }: Readonly<StationProps>) {
               <p className="font-semibold">Working Hours</p>
               <p className="col-span-2">{station?.workingHours}</p>
             </div>
+            <div>
+              <p className="font-semibold">Action </p>
+              <DeleteAction
+                onErrorMessage="Failed to delete station"
+                onSuccessMessage="Station successfully deleted"
+                deleteType="station"
+                description="This will permanently delete your station"
+                id={station?.id}
+              />
+            </div>
           </div>
         ))}
       </div>
@@ -69,6 +80,7 @@ export default function StationList({ stations }: Readonly<StationProps>) {
             <TableHead>Contact</TableHead>
             <TableHead>Working Days</TableHead>
             <TableHead>Working Hours</TableHead>
+            <TableHead>Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -79,6 +91,15 @@ export default function StationList({ stations }: Readonly<StationProps>) {
               <TableCell>{station?.contact}</TableCell>
               <TableCell>{station?.workingDays}</TableCell>
               <TableCell>{station?.workingHours}</TableCell>
+              <TableCell>
+                <DeleteAction
+                  onErrorMessage="Failed to delete station"
+                  onSuccessMessage="Station successfully deleted"
+                  deleteType="station"
+                  description="This will permanently delete your station"
+                  id={station?.id}
+                />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -8,18 +8,15 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 
 const deleteSchema = z.object({
-  bookingId: z.string(),
+  id: z.string(),
 });
 
 export const deleteBooking = actionClient
   .schema(deleteSchema)
-  .action(async ({ parsedInput: { bookingId } }) => {
-    const { isAuthenticated, getUser } = getKindeServerSession();
+  .action(async ({ parsedInput: { id } }) => {
+    const { isAuthenticated } = getKindeServerSession();
 
-    const [isUserAuthenticated] = await Promise.all([
-      isAuthenticated,
-      getUser(),
-    ]);
+    const [isUserAuthenticated] = await Promise.all([isAuthenticated]);
 
     if (!isUserAuthenticated) {
       redirect("/api/auth/login?");
@@ -28,7 +25,7 @@ export const deleteBooking = actionClient
     try {
       const booking = await prisma.booking.findUnique({
         where: {
-          id: bookingId,
+          id: id,
         },
       });
 
@@ -38,7 +35,7 @@ export const deleteBooking = actionClient
 
       await prisma.booking.delete({
         where: {
-          id: bookingId,
+          id: id,
         },
       });
 

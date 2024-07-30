@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import type { User } from "@prisma/client";
 import { Input } from "@/components/ui/input";
 import {
   Table,
@@ -10,20 +9,24 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { DeleteAction } from "../alert";
 
 interface UserUsersTableProps {
   users: {
     id: string;
     firstName: string;
     lastName: string;
+
     email: string;
     profileImage: string | null;
     phoneNumber: string;
     address: string | null;
   }[];
+  type: "worker" | "customer";
 }
 
 export default function CustomerNames({
+  type,
   users,
 }: Readonly<UserUsersTableProps>) {
   const [filter, setFilter] = useState("");
@@ -42,7 +45,6 @@ export default function CustomerNames({
         />
       </div>
       <div className="space-y-6 ">
-        {" "}
         {filteredUsers.map((user) => (
           <div
             key={user?.id}
@@ -62,6 +64,24 @@ export default function CustomerNames({
               <p className="font-semibold">Phone Number </p>
               <p className="col-span-2">{user?.phoneNumber}</p>
             </div>
+            <div>
+              <p className="font-semibold">Action </p>
+              <DeleteAction
+                onErrorMessage="Failed to delete customer"
+                onSuccessMessage={
+                  type === "customer"
+                    ? "Customer successfully deleted"
+                    : "Worker successfully deleted"
+                }
+                deleteType={type === "customer" ? "customer" : "worker"}
+                description={
+                  type === "customer"
+                    ? "This will permanently delete your customer"
+                    : "This will permanently delete your worker"
+                }
+                id={user?.id}
+              />
+            </div>
           </div>
         ))}
       </div>
@@ -72,6 +92,7 @@ export default function CustomerNames({
             <TableHead>Name</TableHead>
             <TableHead>Email</TableHead>
             <TableHead className="">Phone Numbers</TableHead>
+            <TableHead className="">Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -87,6 +108,19 @@ export default function CustomerNames({
               </TableCell>
               <TableCell>
                 <p>{user?.phoneNumber}</p>
+              </TableCell>
+              <TableCell>
+                <DeleteAction
+                  onErrorMessage="Failed to delete customer"
+                  onSuccessMessage="Customer successfully deleted"
+                  deleteType={type === "customer" ? "customer" : "worker"}
+                  description={
+                    type === "customer"
+                      ? "This will permanently delete your customer"
+                      : "This will permanently delete your worker"
+                  }
+                  id={user?.id}
+                />
               </TableCell>
             </TableRow>
           ))}

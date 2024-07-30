@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/button";
 import { CircleAlert } from "lucide-react";
 import { UserBookingTrackTable } from "@/components/shared";
-
 import { getUserBooking } from "@/lib/user/getUserBooking";
 
 const TrackPage = async () => {
@@ -51,7 +50,7 @@ const TrackPage = async () => {
 
             <TabsContent
               value="Booking History"
-              className="mx-5 border border-gray-400 rounded-md mt-8"
+              className="mx-3 sm:mx-5 border border-gray-400 rounded-md mt-8"
             >
               <UserBookingTrackTable bookings={userBookings} />
             </TabsContent>

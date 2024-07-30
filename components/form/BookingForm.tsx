@@ -20,7 +20,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Asterisk, Loader, SendHorizontal, PackagePlus } from "lucide-react";
+import { Asterisk, Loader, SendHorizontal } from "lucide-react";
 import { ButtonLink } from "@/components/button";
 import { bookingFormSchema } from "@/validators/formSchema";
 import { useAction } from "next-safe-action/hooks";
@@ -246,13 +246,13 @@ const BookingForm = () => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="Small 6kg">Small 6kg</SelectItem>
-                      <SelectItem value="Medium 14kg">Medium 14kg</SelectItem>
-                      <SelectItem value="Large 25kg">Large 25kg</SelectItem>
-                      <SelectItem value="Extra large 45kg">
-                        Extra large 45kg
+                      <SelectItem value="Small 6kg - 50">Small 6kg - 50 Cedis</SelectItem>
+                      <SelectItem value="Medium 14kg - 100">Medium 14kg - 100 Cedis</SelectItem>
+                      <SelectItem value="Large 25kg - 150">Large 25kg - 150 Cedis</SelectItem>
+                      <SelectItem value="Extra large 45kg 220">
+                        Extra large 45kg - 220 Cedis
                       </SelectItem>
-                      <SelectItem value="60kg">60kg</SelectItem>
+                      <SelectItem value="60kg - 300">60kg - 300 Cedis</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage>{errors.cylinderSize?.message}</FormMessage>

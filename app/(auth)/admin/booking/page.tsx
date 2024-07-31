@@ -19,7 +19,7 @@ const BookingStatus = async () => {
         <section className="text-center my-8">
           <h2 className="text-xl flex items-center justify-center font-semibold gap-2 mb-4">
             <CircleAlert className="text-destructive" />
-            No Booking history found
+            No booking history found
           </h2>
         </section>
       ) : (

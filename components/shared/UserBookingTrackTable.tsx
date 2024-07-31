@@ -11,8 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ButtonLink } from "@/components/button";
-import { DeleteAction } from "@/components/alert";
-import { getStatusBorderColor } from "@/lib/getStatusBorderColor";
+import { DeleteAction, UserBookingHistory } from "@/components/alert";
 
 interface UserBookingsTableProps {
   bookings: Booking[];
@@ -58,7 +57,9 @@ export default function UserBookingTrackTable({
                 </p>
               </TableCell>
               <TableCell>
-                <ButtonLink className="">View Details</ButtonLink>
+                <UserBookingHistory booking={booking}>
+                  <ButtonLink className="">View Details</ButtonLink>
+                </UserBookingHistory>
               </TableCell>
               <TableCell>
                 <DeleteAction

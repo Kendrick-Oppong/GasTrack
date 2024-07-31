@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import BookingStatusUpdate from "./BookingStatusUpdate";
+import { extractPrice } from "@/lib/extractPrice";
 
 interface UserBookingsTableProps {
   bookings: Booking[];
@@ -65,7 +66,7 @@ export default function BookingTracking({
             </div>
             <div>
               <p className="font-semibold">Price</p>
-              <p className="col-span-2">233</p>
+              <p className="col-span-2">{extractPrice(booking?.cylinderSize)}</p>
             </div>
             <div>
               <p className="font-semibold">Action</p>

@@ -78,7 +78,7 @@ export default function DeleteAction({
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger>
+      <AlertDialogTrigger asChild>
         <ButtonLink
           disabled={isExecuting}
           type="button"

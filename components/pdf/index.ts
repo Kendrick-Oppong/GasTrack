@@ -1,0 +1,1 @@
+export { default as BookingTicketPDF } from "./BookingTicketPDF";

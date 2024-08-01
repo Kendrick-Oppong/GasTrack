@@ -84,7 +84,7 @@ export default function Home() {
       </section>
 
       {/* About Us */}
-      <section id="about" className="grid lg:grid-cols-2 px-5 sm:px-10 px-10 my-16">
+      <section id="about" className="grid lg:grid-cols-2 px-5 sm:px-10 my-16">
         <div className="relative">
           <Image
             src="/about_us.svg"
@@ -100,7 +100,7 @@ export default function Home() {
           </Badge>
 
           <h1 className="">
-            Why <span className="text-primary">Choose Us</span>{" "}
+            Why <span className="text-primary">Choose Us</span>
           </h1>
 
           <ul className="mt-6 space-y-4">

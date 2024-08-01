@@ -6,6 +6,8 @@ import { Navbar } from "@/components/header";
 import { ScrollToTop } from "@/components/shared";
 import { Footer } from "@/components/footer";
 import "./globals.css";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { saveUserDetails } from "@/lib/user/saveUserDetails";
 
 const bai_Jamjuree = Bai_Jamjuree({
   subsets: ["latin"],
@@ -24,9 +26,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  await fetch(`${process.env.KINDE_SITE_URL}/api/auth/createUser`, {
-    cache: "no-store",
-  });
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  if (user && user.id) {
+    await saveUserDetails();
+  }
 
   return (
     <html lang="en">

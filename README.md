@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GasTrack
 
-## Getting Started
+## Table of Contents
 
-First, run the development server:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Screenshots](#screenshots)
+- [Contact](#contact)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<hr style="border:1px solid gray">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Introduction
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+GasTrack is a comprehensive web application designed to streamline the management of LPG (liquefied petroleum gas) refills. Built with modern web technologies, GasTrack enables users to book refills, track their orders in real-time, and ensure a safe and reliable LPG delivery experience. With an intuitive interface and robust backend, GasTrack caters to both users and administrators, providing a seamless experience for all.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<hr style="border:1px solid gray">
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+### For Users
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Book LPG Refills**: Easily schedule and book LPG refills with a user-friendly interface.
+- **Track Orders**: Monitor the status of your LPG refills in real-time.
+- **Profile Management**: Update and manage your profile information with ease.
+- **Status Tracking**: View the current status of your LPG refill, including Pending, Confirmed, Delivered, and Cancelled statuses.
+- **Download Booking as PDF**: Download your booking details as a PDF file, which includes a unique QR code for easy reference.
+- **Dark Mode**: Enjoy a dark mode for a better viewing experience in low-light environments.
+- **Responsive Design**: Fully responsive design ensures a smooth experience across all devices, from mobile to desktop.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### For Administrators
 
-## Deploy on Vercel
+- **Admin Dashboard**: Access a comprehensive dashboard to manage users, bookings, and LPG stations.
+- **CRUD Operations**: Perform Create, Read, Update, and Delete operations on bookings, users, and stations.
+- **Map Integration**: View and manage LPG stations on an interactive map using Leaflet.
+- **Booking Status Management**: Update and manage the status of user bookings.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<hr style="border:1px solid gray">
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Technology Stack
+
+- **Frontend**: Next.js, Shadcn, TypeScript
+- **Backend**: Prisma, Neon Postgres Database
+- **Mapping**: Leaflet
+- **Authentication**: Kinde Auth
+- **Server Actions**: Next.js Server Actions
+- **PDF Generation**: For downloading bookings as PDFs
+- **QR Code Generation**: Includes QR codes for booking IDs
+
+<hr style="border:1px solid gray">
+
+## Screenshots
+
+![GasTrack Screenshot 1](./homepage.png)
+![GasTrack Screenshot 2](./booking_page.png)
+![GasTrack Screenshot 3](./booking_status.png)
+![GasTrack Screenshot 4](./booking_history.png)
+![GasTrack Dashboard Darkmode](./dasboard.png)
+
+<hr style="border:1px solid gray">
+
+## Contact
+
+If you want to get in touch, you can reach me at [kendrickoppong94@gmail.com](mailto:kendrickoppong94@gmail.com).

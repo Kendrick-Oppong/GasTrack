@@ -80,7 +80,7 @@ const ContactUsForm = () => {
   }
 
   return (
-    <div className="mx-auto max-w-6xl text-lg px-5">
+    <div className="mx-auto max-w-6xl text-lg px-3">
       <div className="mx-auto mb-10 rounded-lg border border-primary px-3 pb-10 shadow-2xl">
         <Form {...form}>
           <form

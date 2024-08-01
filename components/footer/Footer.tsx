@@ -25,7 +25,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <p className="text-center">
+      <p className="text-center mt-4">
         &copy; All Rights Reserved - {new Date().getFullYear()}
       </p>
     </footer>

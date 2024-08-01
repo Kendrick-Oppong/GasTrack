@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       {/* hero section */}
-      <section className="grid md:grid-cols-2 px-10 pt-8 lg:pt-0  bg-secondary ">
+      <section className="grid md:grid-cols-2 px-5 sm:px-10 pt-8 lg:pt-0  bg-secondary ">
         <div className="self-center">
           <h1 className="text-4xl  md:text-5xl font-bold">
             Effortless <span className="text-primary">LPG Management</span>{" "}
@@ -84,7 +84,7 @@ export default function Home() {
       </section>
 
       {/* About Us */}
-      <section id="about" className="grid lg:grid-cols-2 px-10 my-16">
+      <section id="about" className="grid lg:grid-cols-2 px-5 sm:px-10 px-10 my-16">
         <div className="relative">
           <Image
             src="/about_us.svg"
@@ -99,7 +99,7 @@ export default function Home() {
             About Us
           </Badge>
 
-          <h1 className="text-5xl font-bold">
+          <h1 className="">
             Why <span className="text-primary">Choose Us</span>{" "}
           </h1>
 
@@ -202,7 +202,7 @@ export default function Home() {
      {/* contact us */}
       <section id="contact-us" className="mt-[8rem]">
         <h1 className="text-center">Got Any <span> Questions?</span></h1>
-        <p className="my-4 text-center">
+        <p className="my-4 text-center px-5 sm:px-10">
           Use this form below to get in touch with our team
         </p>
         <ContactUsForm />

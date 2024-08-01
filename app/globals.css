@@ -63,7 +63,7 @@
   }
 
   h1 {
-    @apply text-5xl font-bold;
+    @apply text-4xl sm:text-5xl  font-bold;
   }
 
   span {

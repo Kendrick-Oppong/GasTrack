@@ -124,7 +124,7 @@ const TrackPage = async () => {
             </TabsContent>
             <TabsContent value="Track" className="mx-3 sm:mx-5 mt-8 space-y-6">
               {userBookings.map((booking) => (
-                <div key={booking.id} className="border p-4 rounded-md">
+                <div key={booking.id} className="border border-gray-400 p-4 pb-5 rounded-md">
                   <h3 className="text-lg font-semibold mb-2">
                     Booking ID: {booking.id}
                   </h3>

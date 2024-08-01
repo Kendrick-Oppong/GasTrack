@@ -30,7 +30,5 @@ export async function GET() {
       },
     });
   }
-  return NextResponse.redirect(
-    process.env.KINDE_POST_LOGIN_REDIRECT_URL as string
-  );
+  return NextResponse.redirect(process.env.KINDE_SITE_URL as string);
 }

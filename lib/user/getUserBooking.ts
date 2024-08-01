@@ -13,6 +13,7 @@ export async function getUserBooking() {
     const userWithBookings = await prisma.booking.findMany({
       where: {
         user: {
+          kindeId: user?.id,
           role: "USER",
         },
       },

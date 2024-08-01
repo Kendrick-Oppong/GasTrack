@@ -31,5 +31,5 @@ export async function GET() {
     });
   }
 
-  return NextResponse.redirect("https://gas-track.vercel.app");
+  return NextResponse.redirect(process.env.KINDE_SITE_URL || "https://gas-track.vercel.app");
 }

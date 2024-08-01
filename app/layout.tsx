@@ -19,11 +19,15 @@ export const metadata: Metadata = {
     "Simplify your LPG management with GasTrack. Book refills, track order status in real-time, and ensure safe and reliable LPG delivery.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  await fetch(`${process.env.KINDE_SITE_URL}/api/auth/createUser`, {
+    cache: "no-store",
+  });
+
   return (
     <html lang="en">
       <body className={`${bai_Jamjuree.className} text-lg`}>
@@ -49,7 +53,7 @@ export default function RootLayout({
           />
           <Navbar />
           <main>{children}</main>
-          <ScrollToTop/>
+          <ScrollToTop />
           <Footer />
         </ThemeProvider>
       </body>

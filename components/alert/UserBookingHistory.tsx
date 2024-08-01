@@ -40,11 +40,17 @@ export default function UserBookingHistory({
               margin: "0 auto",
               maxWidth: 150,
               width: "100%",
+              backgroundColor: "#FFFFFF",
             }}
           >
             <QRCodeCanvas
               size={256}
-              style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+              style={{
+                height: "auto",
+                maxWidth: "100%",
+                width: "100%",
+                backgroundColor: "#FFFFFF",
+              }}
               value={`Booking ID - ${booking.id}`}
             />
           </div>

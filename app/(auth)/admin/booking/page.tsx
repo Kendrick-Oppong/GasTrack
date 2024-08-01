@@ -12,6 +12,7 @@ const BookingStatus = async () => {
     redirect("/api/auth/login?");
   }
   const userBookings = await getUserBooking();
+  console.log(userBookings);
 
   return (
     <section className="pb-10">

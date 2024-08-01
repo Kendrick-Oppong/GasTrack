@@ -249,7 +249,7 @@ const BookingForm = () => {
                       <SelectItem value="Small 6kg - 50">Small 6kg - 50 Cedis</SelectItem>
                       <SelectItem value="Medium 14kg - 100">Medium 14kg - 100 Cedis</SelectItem>
                       <SelectItem value="Large 25kg - 150">Large 25kg - 150 Cedis</SelectItem>
-                      <SelectItem value="Extra large 45kg 220">
+                      <SelectItem value="Extra large 45kg - 220">
                         Extra large 45kg - 220 Cedis
                       </SelectItem>
                       <SelectItem value="60kg - 300">60kg - 300 Cedis</SelectItem>

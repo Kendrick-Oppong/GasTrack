@@ -1,16 +1,7 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import {
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  Image,
-} from "@react-pdf/renderer";
+import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 import type { Booking } from "@prisma/client";
 import { formatDateTime } from "@/lib/dateTimeFormater";
+import { QRImage } from ".";
 
 interface UserBookingHistoryProps {
   booking: Booking;
@@ -43,6 +34,7 @@ const styles = StyleSheet.create({
     maxWidth: 150,
     width: "100%",
     marginBottom: 20,
+    backgroundColor: "#FFFFFF",
   },
   grid: {
     display: "flex",
@@ -79,25 +71,11 @@ const BookingTicketPDF = ({
 }: UserBookingHistoryProps) => {
   const getFormatedDate = formatDateTime(booking.createdAt);
 
-  const [qrCodeDataUri, setQrCodeDataUri] = useState("");
-
-  useEffect(() => {
-    const canvas = document.querySelector("canvas");
-    if (canvas) {
-      const qrCodeDataUri = canvas.toDataURL("image/jpg", 0.3);
-      setQrCodeDataUri(qrCodeDataUri);
-    }
-  }, [booking.id]);
-
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.qrCodeContainer}>
-          <Image
-            src={qrCodeDataUri}
-            style={{ width: 150, height: 150, marginBottom: 5 }}
-            
-          />
+          <QRImage bookingId={booking.id} />
         </View>
 
         <View style={styles.grid}>
@@ -119,27 +97,27 @@ const BookingTicketPDF = ({
         <View style={styles.bookingInfo}>
           <Text style={styles.header}>Booking Information</Text>
           <View style={styles.bookingInfoItem}>
-            <Text style={styles.label}>Status</Text>
+            <Text style={styles.label}>Status:</Text>
             <Text style={styles.value}>{booking.status}</Text>
           </View>
           <View style={styles.bookingInfoItem}>
-            <Text style={styles.label}>Weight</Text>
+            <Text style={styles.label}>Weight:</Text>
             <Text>{cylinderSize}</Text>
           </View>
           <View style={styles.bookingInfoItem}>
-            <Text style={styles.label}>Price</Text>
+            <Text style={styles.label}>Price:</Text>
             <Text>{cylinderPrice} Cedis</Text>
           </View>
           <View style={styles.bookingInfoItem}>
-            <Text style={styles.label}>Booking Date</Text>
+            <Text style={styles.label}>Booking Date:</Text>
             <Text>{getFormatedDate}</Text>
           </View>
           <View style={styles.bookingInfoItem}>
-            <Text style={styles.label}>Payment Mode</Text>
+            <Text style={styles.label}>Payment Mode:</Text>
             <Text>Cash - Pay on Delivery</Text>
           </View>
           <View style={styles.bookingInfoItem}>
-            <Text style={styles.label}>Expected Delivery Date</Text>
+            <Text style={styles.label}>Expected Delivery Date:</Text>
             <Text>Same day</Text>
           </View>
         </View>

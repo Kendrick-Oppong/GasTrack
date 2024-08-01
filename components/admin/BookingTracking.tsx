@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import type { Booking } from "@prisma/client";
-import { getStatusBorderColor } from "@/lib/getStatusBorderColor";
 import { Input } from "@/components/ui/input";
 import {
   Table,
@@ -12,7 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import BookingStatusUpdate from "./BookingStatusUpdate";
-import { extractPrice } from "@/lib/extractPrice";
+import { extractPrice, extractText } from "@/lib/extractPrice";
 
 interface UserBookingsTableProps {
   bookings: Booking[];
@@ -62,11 +61,13 @@ export default function BookingTracking({
             </div>
             <div>
               <p className="font-semibold">Size</p>
-              <p className="col-span-2">{booking?.cylinderSize}</p>
+              <p className="col-span-2">{extractText(booking?.cylinderSize)}</p>
             </div>
             <div>
               <p className="font-semibold">Price</p>
-              <p className="col-span-2">{extractPrice(booking?.cylinderSize)}</p>
+              <p className="col-span-2">
+                {extractPrice(booking?.cylinderSize)}
+              </p>
             </div>
             <div>
               <p className="font-semibold">Action</p>
@@ -103,10 +104,10 @@ export default function BookingTracking({
                 </p>
               </TableCell>
               <TableCell>
-                <p>{booking?.cylinderSize}</p>
+                <p>{extractText(booking?.cylinderSize)}</p>
               </TableCell>
               <TableCell>
-                <p>200ghc</p>
+                <p> {extractPrice(booking?.cylinderSize)}</p>
               </TableCell>
               <TableCell>
                 <BookingStatusUpdate

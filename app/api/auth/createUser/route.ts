@@ -31,5 +31,5 @@ export async function GET() {
     });
   }
 
-  return NextResponse.redirect("https://gas-track.vercel.app/api/auth/createUser" || process.env.KINDE_SITE_URL as string);
+  return NextResponse.redirect("https://gas-track.vercel.app");
 }

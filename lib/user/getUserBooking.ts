@@ -32,6 +32,38 @@ export async function getUserBooking() {
   }
 }
 
+
+export async function getAdminUserBooking() {
+  const { isUserAuthenticated } = await getUserStatus();
+
+  if (!isUserAuthenticated) {
+    redirect("/api/auth/login?");
+  }
+
+  try {
+    const userWithBookings = await prisma.booking.findMany({
+      where: {
+        user: {
+          role: "USER",
+        },
+      },
+      include: {
+        user: true,
+      },
+    });
+
+    if (userWithBookings.length === 0) {
+      return [];
+    }
+
+    return userWithBookings;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
 export async function getUserDetails() {
   const { user, isUserAuthenticated } = await getUserStatus();
 

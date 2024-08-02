@@ -1,7 +1,7 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { CircleAlert } from "lucide-react";
-import { getUserBooking } from "@/lib/user/getUserBooking";
+import { getAdminUserBooking } from "@/lib/user/getUserBooking";
 import { BookingTracking } from "@/components/admin";
 
 const BookingStatus = async () => {
@@ -11,7 +11,7 @@ const BookingStatus = async () => {
   if (!isLoggedIn) {
     redirect("/api/auth/login?");
   }
-  const userBookings = await getUserBooking();
+  const userBookings = await getAdminUserBooking();
   console.log(userBookings);
 
   return (

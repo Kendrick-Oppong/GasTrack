@@ -26,6 +26,7 @@ export const deleteCustomer = actionClient
       const customer = await prisma.user.findUnique({
         where: {
           id: id,
+          role: "USER",
         },
       });
 

@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "GasTrack",
   description:
     "Simplify your LPG management with GasTrack. Book refills, track order status in real-time, and ensure safe and reliable LPG delivery.",
+  metadataBase: new URL(`${process.env.KINDE_SITE_URL}`),
 };
 
 export default async function RootLayout({

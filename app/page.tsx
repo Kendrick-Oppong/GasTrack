@@ -201,7 +201,7 @@ export default function Home() {
       </section>
      {/* contact us */}
       <section id="contact-us" className="mt-[8rem]">
-        <h1 className="text-center">Got Any <span> Questions?</span></h1>
+        <h1 className="text-center px-3">Got Any <span> Questions?</span></h1>
         <p className="my-4 text-center px-5 sm:px-10">
           Use this form below to get in touch with our team
         </p>

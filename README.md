@@ -40,7 +40,7 @@ GasTrack is a comprehensive web application designed to streamline the managemen
 
 ## Technology Stack
 
-- **Frontend**: Next.js, Shadcn, TypeScript
+- **Frontend**: Next.js, Shadcn, TypeScript, React Hook Form, Zod
 - **Backend**: Prisma, Neon Postgres Database
 - **Mapping**: Leaflet
 - **Authentication**: Kinde Auth

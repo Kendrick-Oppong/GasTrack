@@ -34,6 +34,7 @@ GasTrack is a comprehensive web application designed to streamline the managemen
 - **CRUD Operations**: Perform Create, Read, Update, and Delete operations on bookings, users, and stations.
 - **Map Integration**: View and manage LPG stations on an interactive map using Leaflet.
 - **Booking Status Management**: Update and manage the status of user bookings.
+- **Booking Notification**: Receive an email with booking details to update the status of the booking.
 
 <hr style="border:1px solid gray">
 
